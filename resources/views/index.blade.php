@@ -15,7 +15,7 @@
     <nav class="navbar navbar-expand-sm navbar-dark justify-content-center footer-nav">
       <div class="container-fluid footer">
         <div class="row footer-row">
-          <div class="col-12 ftlogo"><a class="navbar-brand" href="#">フルーツ☆パラダイス</a></div>
+          <div class="col-12 ftlogo"><a href="#" class="navbar-brand">フルーツ☆パラダイス</a></div>
           <div class="col-12 nav justify-content-center px-0">
             <ul class="list-inline ft-list-group nav-justified">
                 <li class="nav-item header-list"><a href="#" class="nav-link text-center">ホーム</a></li>
@@ -33,6 +33,7 @@
         </div>
       </div>
     </nav>
+    
     
 </body>
 </html>
