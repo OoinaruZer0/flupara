@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'StaticPagesController@getIndex');
+Route::get('/about', 'StaticPagesController@getAbout');
+Route::get('/policy', 'StaticPagesController@getPolicy');
+Route::get('/recruiter', 'StaticPagesController@getRecruiter');
