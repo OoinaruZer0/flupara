@@ -12,27 +12,19 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-dark justify-content-center footer-nav">
-      <div class="container-fluid footer">
-        <div class="row footer-row">
-          <div class="col-12 ftlogo"><a href="#" class="navbar-brand">フルーツ☆パラダイス</a></div>
-          <div class="col-12 nav justify-content-center px-0">
-            <ul class="list-inline ft-list-group nav-justified">
-                <li class="nav-item header-list"><a href="#" class="nav-link text-center">ホーム</a></li>
-                <li class="nav-item header-list"><a href="#" class="nav-link text-center">当サイトについて</a></li>
-                <li class="nav-item header-list"><a href="#" class="nav-link text-center">ログイン</a></li>
-                <li class="nav-item header-list"><a href="#" class="nav-link text-center">会員登録</a></li>
-            </ul>
-            <ul class="list-inline ft-list-group nav-justified">
-                <li class="nav-item header-list"><a href="#" class="nav-link text-center">個人情報保護方針</a></li>
-                <li class="nav-item header-list"><a href="#" class="nav-link text-center">採用担当者様へ</a></li>
-                <li class="nav-item header-list"><a href="#" class="nav-link text-center">お問い合わせ</a></li>
-                <li class="nav-item header-list"><a href="#" class="nav-link text-center">商品一覧</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
+  @extends('layout')
+  
+  @section('content')
+  <div><h1>RECOMMEND</h1></div>
+  <div><h1>ランキング</h1></div>
+  <div><h1>ニュース</h1></div>
+  <div><h1>特集</h1></div>
+  
+  @endsection
+  
+  @section('scripts')
+  
+  @endsection
     
     
 </body>
