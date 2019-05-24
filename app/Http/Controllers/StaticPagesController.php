@@ -13,12 +13,4 @@ class StaticPagesController extends Controller
     public function getAbout() {
         return view('about');
     }
-    
-    public function getPolicy() {
-        return view('policy');
-    }
-    
-    public function getRecruiter() {
-        return view('recruiter');
-    }
 }
