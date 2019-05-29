@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateUser;
 
@@ -31,4 +32,29 @@ class UsersController extends Controller
         return redirect()->route('index');
         
     }
+    
+    public function getSignin()
+    {
+        return view('users.signin');
+    }
+    
+    public function postSignin(Request $request)
+    {
+        $this->validate($request,[
+            'email' => 'email|required',
+            'password' => 'required'
+        ]);
+        
+        $credentials = $request->only('email', 'password');
+        if(Auth::attempt($credentials)) {
+            return redirect()->route('index')->with('flash_message', 'ログインが完了しました。');
+        } else {
+            return redirect()->route('users.signin')->with('flash_message', 'ログインできませんでした。');
+        }
+    }
+  
+  public function getLogout(){
+      Auth::logout();
+      return redirect()->route('index');
+  }
 }

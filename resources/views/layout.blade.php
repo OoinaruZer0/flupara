@@ -24,8 +24,14 @@
         <ul class="navbar-nav d-flex flex-column flex-md-row">
             <li class="nav-item header-list"><a href="{{ route('index') }}" class="nav-link text-center">Home</a></li>
             <li class="nav-item header-list"><a href="{{ route('about') }}" class="nav-link text-center">当サイトについて</a></li>
-            <li class="nav-item header-list"><a href="#" class="nav-link text-center">ログイン</a></li>
+            @if( Auth::check() )
+            <li class="nav-item header-list"><a href="#" class="nav-link text-center">商品一覧</a></li>
+            <li class="nav-item header-list"><a href="{{ route('users.logout') }}" class="nav-link text-center">ログアウト</a></li>
+            <li class="nav-item header-list"><a href="#" class="nav-link text-center">カート</a></li>
+            @else
+            <li class="nav-item header-list"><a href="{{ route('users.signin') }}" class="nav-link text-center">ログイン</a></li>
             <li class="nav-item header-list"><a href="{{ route('users.signup') }}" class="nav-link text-center">会員登録</a></li>
+            @endif
         </ul>
         </div>
     </div>

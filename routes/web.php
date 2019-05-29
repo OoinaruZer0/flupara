@@ -25,4 +25,19 @@ Route::group(['prefix' => 'users'], function() {
         'uses' => 'UsersController@create',
         'as' => 'users.signup'
         ]);
+    // ユーザーログイン機能のルーティング
+    Route::get('/signin',[
+        'uses' => 'UsersController@getSignin',
+        'as' => 'users.signin'
+        ]);
+        
+    Route::post('signin',[
+        'uses' => 'UsersController@postSignin',
+        'as' => 'users.signin'
+        ]);
 });
+
+Route::get('/logout', [
+    'uses' => 'UsersController@getlogout',
+    'as' => 'users.logout'
+    ]);

@@ -63,7 +63,7 @@
 </ul>
 
 <h4>使用プラットフォーム</h4>
-<p>AWS</p>
+<p>heroku</p>
 
 @endsection
 

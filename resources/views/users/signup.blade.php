@@ -44,7 +44,7 @@
           <label>都道府県以降の住所</label>
           <input type="text" name="addr31" size="40">
           </div>
-          <button type="submit" class="btn btn-default">会員登録</button>
+          <button type="submit" class="btn btn-primary">会員登録</button>
           {{ csrf_field() }}
         </form>
       </div>

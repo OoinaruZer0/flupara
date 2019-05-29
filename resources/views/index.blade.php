@@ -1,13 +1,19 @@
-  @extends('layout')
+@extends('layout')
   
-  @section('content')
-  <div><h1>RECOMMEND</h1></div>
-  <div><h1>ランキング</h1></div>
-  <div><h1>ニュース</h1></div>
-  <div><h1>特集</h1></div>
+@section('content')
+<!--フラッシュメッセージ-->
+@if (session('flash_message'))
+  <div class="flash_message">
+    {{ session('flash_message') }}
+  </div>
+@endif
+    <div><h1>RECOMMEND</h1></div>
+    <div><h1>ランキング</h1></div>
+    <div><h1>ニュース</h1></div>
+    <div><h1>特集</h1></div>
   
-  @endsection
+@endsection
   
-  @section('scripts')
+@section('scripts')
   
-  @endsection
+@endsection
