@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Http\Requests\CreateUser;
 
 class UsersController extends Controller
@@ -33,7 +34,7 @@ class UsersController extends Controller
         
     }
     
-    public function getSignin()
+    public function showLoginForm()
     {
         return view('users.signin');
     }
