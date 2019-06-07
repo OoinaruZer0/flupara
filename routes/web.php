@@ -59,3 +59,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::get('/logout', 'Admin\Auth\LoginController@logout')->name('admin.logout');
     Route::get('/home', 'Admin\HomeController@getIndex')->name('admin.home');
 });
+
+// 商品追加機能のルーティング
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
+    Route::get('/add_product', 'Admin\AddProductController@showAddProductForm')->name('add.product');
+    Route::post('/add_product', 'Admin\AddProductController@create');
+});
+
+// 単位追加機能のルーティング
+Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
+    Route::get('/add_product_unit', 'Admin\AddUnitController@showAddUnitForm')->name('product.unit');
+    Route::post('/add_product_unit', 'Admin\AddUnitController@create');
+});
+

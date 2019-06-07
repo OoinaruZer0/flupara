@@ -10,9 +10,10 @@
     <h1>ダッシュボード</h1>
     <ul>
         <li>注文一覧</li>
-        <li>商品追加</li>
+        <li><a href="{{ route('add.product') }}">商品追加</a></li>
         <li>商品一覧</li>
-        <li class="nav-item header-list"><a href="{{ route('admin.logout') }}" class="nav-link text-center">ログアウト</a></li>
+        <li><a href="{{ route('admin.logout') }}">ログアウト</a></li>
+        <li><a href="{{ route('product.unit') }}">単位追加</a></li>
     </ul>
     
 </body>
