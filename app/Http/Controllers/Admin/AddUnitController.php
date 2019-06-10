@@ -23,6 +23,8 @@ class AddUnitController extends Controller
         
         $unit->save();
         
-        return redirect()->route('admin/add_product_unit');
+        
+        \Session::flash('flash_message', '投稿が完了しました');
+        return redirect()->route('product.unit');
     }
 }

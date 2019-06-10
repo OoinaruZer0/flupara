@@ -7,7 +7,8 @@
     <title>フルーツ☆パラダイス</title>
 </head>
 <body>
-    
+  
+ <!-- フラッシュメッセージ -->
     <h1>商品追加画面</h1>
     <form action="{{ route('add.product') }}" method="post">
                 <div class="form-group">

@@ -12,7 +12,7 @@ class AddProductController extends Controller
         
     public function showAddProductForm()
     {
-        $units = Unit::pluck('id');
+        $units = Unit::pluck('name');
         return view('admin/add_product', compact('units'));
     }
     
@@ -30,7 +30,7 @@ class AddProductController extends Controller
         $product->product_description = $request->product_description;
         $product->price = $request->price;
         $product->stock = $request->stock;
-        
+        $product->unit_id = $request->unit_id;
         $product->save();
         
         return redirect()->route('admin/add_product');
