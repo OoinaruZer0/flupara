@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -24,7 +24,7 @@ class AddUnitController extends Controller
         $unit->save();
         
         
-        \Session::flash('flash_message', '投稿が完了しました');
+        \Session::flash('flash_message', '単位の追加が完了しました！');
         return redirect()->route('product.unit');
     }
 }
