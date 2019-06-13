@@ -9,8 +9,23 @@
 <body>
   
  <!-- フラッシュメッセージ -->
+ @if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+    @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+    @endforeach
+    </ul>
+</div>
+@endif
+
+@if (session('flash_message'))
+            <div class="flash_message">
+                {{ session('flash_message') }}
+            </div>
+@endif
     <h1>商品追加画面</h1>
-    <form action="{{ route('add.product') }}" method="post">
+    <form action="{{ route('add.product') }}" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <input type="file" name="product_image"> 
                 </div>
@@ -25,7 +40,7 @@
                 </div>
                 <div class="form-group">
                   <input type="text" class="form-control" name="stock" placeholder="在庫数"/>
-                  {!! Form::select('単位の名前', $units, null, ['class' => 'form-control']) !!}
+                  {!! Form::select('unit_id', $units, null, ['class' => 'form-control']) !!}
                 </div>
                 <div class="text-right">
                   <button type="submit" class="btn btn-primary">商品追加</button>
