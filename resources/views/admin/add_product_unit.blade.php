@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>フルーツ☆パラダイス</title>
-</head>
-<body>
+@extends('admin.layout_admin')
+
+@section('content')
     @if (count($errors) > 0)
     <div class="alert alert-danger">
         <ul>
@@ -29,6 +23,5 @@
                 <button type="submit" class="btn btn-primary">単位追加</button>
                 {{ csrf_field() }}
 </form>
-    
-</body>
-</html>
+@endsection
+

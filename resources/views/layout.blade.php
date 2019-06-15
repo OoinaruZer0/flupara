@@ -24,9 +24,9 @@
         <ul class="navbar-nav d-flex flex-column flex-md-row">
             <li class="nav-item header-list"><a href="{{ route('index') }}" class="nav-link text-center">Home</a></li>
             <li class="nav-item header-list"><a href="{{ route('about') }}" class="nav-link text-center">当サイトについて</a></li>
+            <li class="nav-item header-list"><a href="{{ route('product.list') }}" class="nav-link text-center">商品一覧</a></li>
             <li class="nav-item header-list"><a href="{{ route('admin.signin') }}" class="nav-link text-center">管理者ログイン</a></li>
             @if( Auth::check() )
-            <li class="nav-item header-list"><a href="#" class="nav-link text-center">商品一覧</a></li>
             <li class="nav-item header-list"><a href="{{ route('users.logout') }}" class="nav-link text-center">ログアウト</a></li>
             <li class="nav-item header-list"><a href="#" class="nav-link text-center">カート</a></li>
             @else
