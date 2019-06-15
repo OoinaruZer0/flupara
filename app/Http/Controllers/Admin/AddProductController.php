@@ -21,7 +21,6 @@ class AddProductController extends Controller
     public function create(ProductRequest $request)
     {
         $product = new Product();
-        
         //$product->product_image = $request->product_image;
         // ファイルがアップロードされたか確認
          if (request()->hasFile('product_image')){
@@ -34,13 +33,8 @@ class AddProductController extends Controller
         // アップロードしたファイルを指定のフォルダまでmoveメソッドで送り、パラメーター２でファイル名を指定
         $uploaded_image->move($destination_path, $image_name);
         //アップロードしたファイルの名前を上書き
-        $product->product_image = $destination_path . $image_name;
+        $product->product_image = str_replace("/home/ec2-user/environment/flupara/public", "", $destination_path) . "/" . $image_name;
     }
-        // アップロードされたファイルを受け取る
-        
-        // $image_name = time().'.'.request()->product_image->getClientOriginalExtension();
-        // request()->product_image->move(public_path('product_images'), $image_name);
-        
         $product->product_name = $request->product_name;
         $product->product_description = $request->product_description;
         $product->price = $request->price;

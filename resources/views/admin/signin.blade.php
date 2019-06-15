@@ -17,7 +17,8 @@
             </div>
             @endif
             <!--フラッシュメッセージ終了-->
-            <h1>ログイン</h1>
+            <a href="{{ route('index') }}">通常画面に戻る</a>
+            <h1>管理者ログイン</h1>
             @if(count($errors) >0)
             <div class="alert alert-danger">
             @foreach($errors->all() as $error)

@@ -73,3 +73,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::post('/add_product_unit', 'Admin\AddUnitController@create');
 });
 
+
+Route::get('/product_list', 'ProductListController@list')->name('product.list');
+Route::get('/product_show/{id}', 'ProductListController@getShow')->name('product.show');
