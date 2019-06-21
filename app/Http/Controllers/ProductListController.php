@@ -21,4 +21,3 @@ class ProductListController extends Controller
         return view('/product_show', compact('product'));
     }
 }
-
