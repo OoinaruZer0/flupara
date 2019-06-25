@@ -22,6 +22,8 @@
                         <li>商品一覧</li>
                         <li><a href="{{ route('admin.logout') }}">ログアウト</a></li>
                         <li><a href="{{ route('product.unit') }}">単位追加</a></li>
+                        <li><a href="{{ route('users.signup') }}">新規会員登録</a></li>
+                        <li><a href="{{ route('index') }}">通常画面に戻る</a></li>
                     </ul>
             </div>
             <div class="col-12 col-sm-9">
