@@ -26,13 +26,11 @@
             <li class="nav-item header-list"><a href="{{ route('index') }}" class="nav-link">Home</a></li>
             <li class="nav-item header-list"><a href="{{ route('about') }}" class="nav-link">当サイトについて</a></li>
             <li class="nav-item header-list"><a href="{{ route('product.list') }}" class="nav-link">商品一覧</a></li>
-            <li class="nav-item header-list"><a href="{{ route('admin.signin') }}" class="nav-link">管理者ログイン</a></li>
             @if( Auth::check() )
             <li class="nav-item header-list"><a href="{{ route('users.logout') }}" class="nav-link">ログアウト</a></li>
             <li class="nav-item header-list"><a href="#" class="nav-link text-center">カート</a></li>
             @else
             <li class="nav-item header-list"><a href="{{ route('users.signin') }}" class="nav-link">ログイン</a></li>
-            <li class="nav-item header-list"><a href="{{ route('users.signup') }}" class="nav-link">会員登録</a></li>
             @endif
           </ul>
           </div>
@@ -70,7 +68,7 @@
 <footer class="text-muted blackbackground">
   <div class="container-fluid p-4">
     <p class="text-center mb-0">Copyright 2019, BA-SHOW</p>
-    <p class="text-center mb-0">All images is downloaded from "food.foto". Do not use the images in your website.</p>
+    <p class="text-center mb-0">All images is downloaded from "food<span><a href="{{ route('admin.signin') }}">.</a></span>foto". Do not use the images in your website.</p>
   </div>
 </footer>
     @yield('scripts')

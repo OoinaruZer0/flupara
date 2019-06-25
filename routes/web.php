@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Auth::routes();
 
 // 静的ページのルーティング
@@ -18,7 +17,7 @@ Route::get('/', 'StaticPagesController@getIndex')->name('index');
 Route::get('/about', 'StaticPagesController@getAbout')->name('about');
 
 // 新規会員登録機能のルーティング
-Route::group(['prefix' => 'users'], function() {
+Route::group(['prefix' => 'users', 'middleware' => 'auth:admin'], function() {
     Route::get('/signup',[
         'uses' => 'UsersController@getSignup',
         'as' => 'users.signup'
@@ -28,7 +27,10 @@ Route::group(['prefix' => 'users'], function() {
         'uses' => 'UsersController@create',
         'as' => 'users.signup'
         ]);
-    // ユーザーログイン機能のルーティング
+});
+
+// ユーザーログイン機能のルーティング
+Route::group(['prefix' => 'users'], function() {
     Route::get('/signin',[
         'uses' => 'UsersController@showLoginForm',
         'as' => 'users.signin'
@@ -39,6 +41,8 @@ Route::group(['prefix' => 'users'], function() {
         'as' => 'users.signin'
         ]);
 });
+    
+    
 
 // ユーザーログアウト機能のルーティング
 Route::get('/logout', [
@@ -73,6 +77,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::post('/add_product_unit', 'Admin\AddUnitController@create');
 });
 
-
+// 商品一覧と詳細ページのルーティング
 Route::get('/product_list', 'ProductListController@list')->name('product.list');
 Route::get('/product_show/{id}', 'ProductListController@getShow')->name('product.show');
+
+// カートのルーティング
+Route::get('cart', 'ProductListController@cart');
+ Route::get('add-to-cart/{id}', 'ProductListController@addToCart');

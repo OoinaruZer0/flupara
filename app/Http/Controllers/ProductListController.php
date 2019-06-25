@@ -20,4 +20,13 @@ class ProductListController extends Controller
         $product = Product::find($id);
         return view('/product_show', compact('product'));
     }
+    
+    public function cart()
+    {
+        return view('cart');
+    }
+    public function addToCart($id)
+    {
+ 
+    }
 }

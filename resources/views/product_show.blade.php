@@ -6,7 +6,7 @@
 <p>{{ $product->product_name }}</p>
 <p>{{ $product->product_description }}</p>
 <p>価格 {{ $product->price }} 円</p>
-<a href="#">カートに入れる。</a>
+<a href="{{ url('add-to-cart/'.$product->id) }}">カートに入れる。</a>
 @endsection
 
 @section('script')
