@@ -30,7 +30,8 @@ class UsersController extends Controller
         $user->addr31 = $request->addr31;
         $user->save();
         
-        return redirect()->route('index');
+        \Session::flash('flash_message', 'ユーザーの追加が完了しました！');
+        return redirect()->route('users.signup');
         
     }
     

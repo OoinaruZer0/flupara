@@ -27,7 +27,6 @@
                     </div>
                     <div class="form-group">
                         <textarea name="product_description" placeholder="商品説明を書いてください。" cols="45" rows="8"></textarea>
-                        <!--<input type="text" class="form-control" rows="3" name="product_description" placeholder="商品説明"/>-->
                     </div>
                     <div class="form-group">
                         <input type="text" name="price" placeholder="価格"/>
