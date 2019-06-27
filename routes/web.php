@@ -15,6 +15,8 @@ Auth::routes();
 // 静的ページのルーティング
 Route::get('/', 'StaticPagesController@getIndex')->name('index');
 Route::get('/about', 'StaticPagesController@getAbout')->name('about');
+Route::get('/law', 'StaticPagesController@getLaw')->name('law');
+Route::get('/privacypolicy', 'StaticPagesController@getPolicy')->name('policy');
 
 // 新規会員登録機能のルーティング
 Route::group(['prefix' => 'users', 'middleware' => 'auth:admin'], function() {
@@ -82,5 +84,7 @@ Route::get('/product_list', 'ProductListController@list')->name('product.list');
 Route::get('/product_show/{id}', 'ProductListController@getShow')->name('product.show');
 
 // カートのルーティング
-Route::get('cart', 'ProductListController@cart');
- Route::get('add-to-cart/{id}', 'ProductListController@addToCart');
+Route::get('cart', 'ProductListController@cart')->name('cart');
+Route::get('add-to-cart/{id}', 'ProductListController@addToCart');
+Route::patch('update-cart', 'ProductListController@update');
+Route::delete('remove-from-cart', 'ProductListController@remove');
