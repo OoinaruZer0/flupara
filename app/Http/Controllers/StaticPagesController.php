@@ -15,4 +15,12 @@ class StaticPagesController extends Controller
     public function getAbout() {
         return view('about');
     }
+    
+    public function getLaw() {
+        return view('law');
+    }
+    
+    public function getPolicy() {
+        return view('policy');
+    }
 }

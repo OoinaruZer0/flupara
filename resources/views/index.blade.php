@@ -7,6 +7,10 @@
     {{ session('flash_message') }}
   </div>
 @endif
+<h1>重要なお知らせ</h1>
+<p>当ECサイトはwebエンジニア志望者が作成したポートフォリオです。採用担当者様以外は、当ショップのいかなる機能も使用せず、</p>
+<p>当ショップからご退場くださいますようよろしくお願いします。</p>
+<p>詳しくは、<a href="{{ route('about') }}">aboutページ</a>をご確認ください。</p>
 <h1>新着</h1>
   <div class="container-fluid">
     <div class="row">

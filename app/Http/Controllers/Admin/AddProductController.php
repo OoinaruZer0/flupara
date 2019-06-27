@@ -21,7 +21,6 @@ class AddProductController extends Controller
     public function create(ProductRequest $request)
     {
         $product = new Product();
-        //$product->product_image = $request->product_image;
         // ファイルがアップロードされたか確認
          if (request()->hasFile('product_image')){
         // fileメソッドでアップロードしたファイルにアクセスし、変数に代入
