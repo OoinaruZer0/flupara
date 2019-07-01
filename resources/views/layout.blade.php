@@ -50,8 +50,7 @@
     <div class="row text-muted">
       <div class="col-12 col-sm-6">
         <h2 class="text-center mb-3">E-mail</h2>
-        <p class="text-center mb-0">contact@domain.com</p>
-        <p class="text-center mb-3">office@domain.com</p>
+        <p class="text-center mb-0">eje84smg3uy@gmail.com</p>
       </div>
       <div class="col-12 col-sm-6">
           <nav class="navbar navbar-expand-md navbar-light justify-content-center">
