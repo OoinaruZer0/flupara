@@ -60,7 +60,6 @@ class ProductListController extends Controller
  
             return redirect()->back()->with('success', '商品がカートに追加されました！');
         }
-        //else使って書く
         // カートが空でない場合は、この商品が存在するかどうかを確認してから数量を増やす
         if(isset($cart[$id])) {
  
