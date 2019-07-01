@@ -28,9 +28,9 @@
             <li class="nav-item header-list"><a href="{{ route('law') }}" class="nav-link">特定商取引法に基づく表記</a></li>
             <li class="nav-item header-list"><a href="{{ route('policy') }}" class="nav-link">プライバシーポリシー</a></li>
             <li class="nav-item header-list"><a href="{{ route('product.list') }}" class="nav-link">商品一覧</a></li>
+            <li class="nav-item header-list"><a href="{{ route('cart') }}" class="nav-link text-center">カート</a></li>
             @if( Auth::check() )
             <li class="nav-item header-list"><a href="{{ route('users.logout') }}" class="nav-link">ログアウト</a></li>
-            <li class="nav-item header-list"><a href="{{ route('cart') }}" class="nav-link text-center">カート</a></li>
             @else
             <li class="nav-item header-list"><a href="{{ route('users.signin') }}" class="nav-link">ログイン</a></li>
             @endif
