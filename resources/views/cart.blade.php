@@ -13,15 +13,8 @@
         </tr>
         </thead>
         <tbody>
- 
-        <?php $total = 0;
-              $DeliveryFee = 650;
-              $CashOnDeliveryFee = 350;
-        ?>
- 
         @if(session('cart'))
             @foreach(session('cart') as $id => $details)
- 
                 <?php $total += $details['price'] * $details['quantity'] ?>
  
                 <tr>
@@ -33,12 +26,18 @@
                             </div>
                         </div>
                     </td>
-                    <td data-th="Price">${{ $details['price'] }}</td>
+                    <td data-th="Price">{{ $details['price'] }}円</td>
                     <td data-th="Quantity">
-                        <input type="number" value="{{ $details['quantity'] }}" class="form-control quantity" />
+                        <input type="number" min="1" value="{{ $details['quantity'] }}" class="form-control quantity" />
                     </td>
-                    <td data-th="Unit">{{ $details['unit'] }}</td>
-                    <td data-th="Subtotal" class="text-center">${{ $details['price'] * $details['quantity'] }}</td>
+                    <td data-th="Unit">
+                        @foreach($units as $unit)
+                            @if($unit->id == $details['unit'])
+                                <?php echo $unit->name ?>
+                            @endif
+                        @endforeach
+                    </td>
+                    <td data-th="Subtotal" class="text-center">{{ $details['price'] * $details['quantity'] }}円</td>
                     <td class="actions" data-th="">
                         <button class="btn btn-info btn-sm update-cart" data-id="{{ $id }}"><i class="fas fa-sync-alt"></i></button>
                         <button class="btn btn-danger btn-sm remove-from-cart" data-id="{{ $id }}"><i class="far fa-trash-alt"></i></button>
@@ -53,13 +52,17 @@
                 <div class="col-12 col-sm-6">
                     <a href="{{ route('product.list') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i>商品一覧ページに戻る</a>
                 </div>
+                @if(!$cart)
+                <?php echo "商品を追加してください"; ?>
+                @else
+                
                 <div class="col-12 col-sm-4 text-right">
-                    <p>配送料 {{$DeliveryFee }} 円</p>
-                    <p>代引き手数料 {{ $CashOnDeliveryFee }} 円</p>
-                    <?php $total += $DeliveryFee;
-                          $total += $CashOnDeliveryFee; ?>
-                    <strong>合計 {{ $total }}円</strong>
+                    <?php
+                        $total = $total + $DeliveryFee + $CashOnDeliveryFee;
+                        echo "配送料".$DeliveryFee."円<br>代引き手数料".$CashOnDeliveryFee."円<br><strong>合計".$total."円</strong>";
+                    ?>
                 </div>
+                @endif
                 <div class="col-12 offset-sm-2"></div>
             </div>
         </div>

@@ -24,20 +24,24 @@ class ProductListController extends Controller
     
     public function cart()
     {
-        return view('cart');
+        $units = Unit::all();
+        $total = 0;
+        $DeliveryFee = 650;
+        $CashOnDeliveryFee = 350;
+        $cart = session()->get('cart');
+        return view('cart', ["units" => $units,
+                             "total" => $total,
+                             "DeliveryFee" => $DeliveryFee,
+                             "CashOnDeliveryFee" => $CashOnDeliveryFee,
+                             "cart" => $cart
+                             ]);
     }
     public function addToCart($id)
     {
-        $product = Product::find($id);
- 
-        if(!$product) {
- 
-            abort(404);
- 
-        }
+        $product = Product::findOrFail($id);
  
         $cart = session()->get('cart');
- 
+
         // もしカートが空で、これが最初の商品だったら
         if(!$cart) {
  
@@ -56,7 +60,7 @@ class ProductListController extends Controller
  
             return redirect()->back()->with('success', '商品がカートに追加されました！');
         }
- 
+        //else使って書く
         // カートが空でない場合は、この商品が存在するかどうかを確認してから数量を増やす
         if(isset($cart[$id])) {
  
