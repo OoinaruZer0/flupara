@@ -81,10 +81,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
 
 // 商品一覧と詳細ページのルーティング
 Route::get('/product_list', 'ProductListController@list')->name('product.list');
-Route::get('/product_show/{id}', 'ProductListController@getShow')->name('product.show');
+Route::get('/product_show/product/{id}', 'ProductListController@getShow')->name('product.show');
 
 // カートのルーティング
 Route::get('cart', 'ProductListController@cart')->name('cart');
 Route::get('add-to-cart/{id}', 'ProductListController@addToCart');
 Route::patch('update-cart', 'ProductListController@update');
 Route::delete('remove-from-cart', 'ProductListController@remove');
+
+// 注文確定ページのルーティング
+Route::group(['middleware' => 'auth:user'], function(){
+    Route::get('/buy', 'BuyController@index')->name('buy.index');
+});
+Route::post('/buy', 'BuyController@store');
