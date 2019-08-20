@@ -1,7 +1,7 @@
 @extends('layout')
   
 @section('content')
-  <table id="cart" class="table table-hover table-condensed">
+<table id="cart" class="table table-hover table-condensed">
         <thead>
         <tr>
             <th style="width:42%">商品</th>
@@ -28,7 +28,7 @@
                     </td>
                     <td data-th="Price">{{ $details['price'] }}円</td>
                     <td data-th="Quantity">
-                        <input type="number" min="1" value="{{ $details['quantity'] }}" class="form-control quantity" />
+                        {{ $details['quantity'] }}
                     </td>
                     <td data-th="Unit">
                         @foreach($units as $unit)
@@ -38,10 +38,6 @@
                         @endforeach
                     </td>
                     <td data-th="Subtotal" class="text-center">{{ $details['price'] * $details['quantity'] }}円</td>
-                    <td class="actions" data-th="">
-                        <button class="btn btn-info btn-sm update-cart" data-id="{{ $id }}"><i class="fas fa-sync-alt"></i></button>
-                        <button class="btn btn-danger btn-sm remove-from-cart" data-id="{{ $id }}"><i class="far fa-trash-alt"></i></button>
-                    </td>
                 </tr>
             @endforeach
         @endif
@@ -50,65 +46,21 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 col-sm-6">
-                    <a href="{{ route('product.list') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i>商品一覧ページに戻る</a>
+                    <a href="{{ route('cart') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i>カートに戻る</a>
                 </div>
-                @if(!$cart)
-                <?php echo "商品を追加してください"; ?>
-                @else
-                
                 <div class="col-12 col-sm-4 text-right">
                     <?php
                         $total = $total + $DeliveryFee + $CashOnDeliveryFee;
                         echo "配送料".$DeliveryFee."円<br>代引き手数料".$CashOnDeliveryFee."円<br><strong>合計".$total."円</strong>";
                     ?>
                 </div>
-                @endif
-                @if( Auth::check() && $cart )
                 <div class="col-12 col-sm-2">
-                    <a class="btn btn-primary" href="/buy" role="button">レジに進む</a>
+                    <button type="submit" class="btn btn-primary" name="post">注文を確定する</button>
                 </div>
-                @else
-                <div class="offset-sm-2"></div>
-                @endif
             </div>
         </div>
 @endsection
   
 @section('scripts')
-<script type="text/javascript">
- 
-        $(".update-cart").click(function (e) {
-            
-           e.preventDefault();
- 
-           var ele = $(this);
- 
-            $.ajax({
-               url: '{{ url('update-cart') }}',
-               method: "patch",
-               data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id"), quantity: ele.parents("tr").find(".quantity").val()},
-               success: function (response) {
-                   window.location.reload();
-               }
-            });
-        });
- 
-        $(".remove-from-cart").click(function (e) {
-            
-            e.preventDefault();
- 
-            var ele = $(this);
- 
-            if(confirm("商品を削除しますか？")) {
-                $.ajax({
-                    url: '{{ url('remove-from-cart') }}',
-                    method: "DELETE",
-                    data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id")},
-                    success: function (response) {
-                        window.location.reload();
-                    }
-                });
-            }
-        });
-</script>
+  
 @endsection
