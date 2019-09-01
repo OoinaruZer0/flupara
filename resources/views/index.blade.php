@@ -15,6 +15,9 @@
     <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
     <!-- Original CSS -->
 	  <link rel="stylesheet" href="css/fluprara.css">
+	  
+	<!-- social btn CSS for Bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap-social.css">
 	  <!-- web Fonts -->
 	  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Sawarabi+Mincho&display=swap" rel="stylesheet">
 	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -122,6 +125,7 @@
 			</div>
 		</div>
 	</header>
+	
 	<side>
 		<div class="modal in d-block" id="testModal" tabindex="-1" role="dialog" aria-labelledby="basicModal">
 			<div class="modal-dialog">
