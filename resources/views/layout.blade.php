@@ -15,23 +15,29 @@
     <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
     <!-- Original CSS -->
 	  <link rel="stylesheet" href="css/fluprara.css">
+	  
+	<!-- social btn CSS for Bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap-social.css">
 	  <!-- web Fonts -->
 	  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Sawarabi+Mincho&display=swap" rel="stylesheet">
 	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	  <!--js-->
-	  <script src="js/flupara.js"></script>
-	  
+	 
 </head>
+
 <body>
-    <!--ヘッダー開始-->
-    
+
 	<header>
+		@if (session('flash_message'))
+  			<div class="flash_message">
+    			{{ session('flash_message') }}
+  			</div>
+		@endif
 		<!-- モバイル用ヘッダー -->
 		<div class="d-lg-none">
 			<nav class="container-fluid navbar navbar-light fixed-top py-2 bg-nav shadow">
 				<div class="container">
-					<a class="navbar-brand w-25" href="{{ route('index') }}"><img src="img/logo1-8.png" class="w-100" alt="松本青果店"></a>
-					<div class="ml-auto w-25"><a class="clearfix" href="{{ route('cart') }}"><img src="img/cart-green-8.png" class="float-right w-50 py-2 pr-3" alt="カートを見る"></a></div>
+					<a class="navbar-brand w-25" href="{{ route('index') }}"><img src="https://flupara-20190818.s3-ap-northeast-1.amazonaws.com/logo1-8.png" class="w-100" alt="松本青果店"></a>
+					<div class="ml-auto w-25"><a class="clearfix" href="{{ route('cart') }}"><img src="https://flupara-20190818.s3-ap-northeast-1.amazonaws.com/cart-green-8.png" class="float-right w-50 py-2 pr-3" alt="カートを見る"></a></div>
 
 					<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent">
 						<span class="navbar-toggler-icon"></span>
@@ -50,15 +56,15 @@
 							<a class="text-success" href="{{ route('cart') }}">
 								<li class="py-2">カートを見る</li>
 							</a>
-							 @if( Auth::check() )
-              <a class="text-success" href="{{ route('users.logout') }}">
+							@if( Auth::check() )
+              				<a class="text-success" href="{{ route('users.logout') }}">
 								<li class="py-2">ログアウト</li>
 							</a>
-              @else
-            	<a class="text-success" href="{{ route('users.signin') }}">
+              				@else
+            				<a class="text-success" href="{{ route('users.signin') }}">
 								<li class="py-2">ログイン</li>
 							</a>
-              @endif
+              				@endif
 						</ul>
 					</div>
 				</div>
@@ -72,7 +78,7 @@
 					<p>老舗が厳選した産直フルーツ</p>
 				</div>
 				<div class="row">
-					<div class="logo-lg mx-auto"><img src="img/logo1-8.png" class="w-100" alt="松本青果店"></div>
+					<div class="logo-lg mx-auto"><img src="https://flupara-20190818.s3-ap-northeast-1.amazonaws.com/logo1-8.png" class="w-100" alt="松本青果店"></div>
 				</div>
 				<div class="row pt-2">
 					<p>~ あなたの元気は、ここにある ~</p>
@@ -82,7 +88,7 @@
 				<!-- ここからスライダー -->
 				<div class="container">
 					<div class="row">
-						<div id="carousel-sample" class="carousel col slidemx-auto" data-interval=5000 data-ride="carousel">
+						<div id="carousel-sample" class="col carousel slide" data-interval=5000 data-ride="carousel">
 							<!-- 画像下部の■ ■ ■部分-->
 							<ol class="carousel-indicators">
 								<li data-target="#carousel-sample" data-slide-to="0" class="active"></li>
@@ -92,13 +98,13 @@
 							<!--画像スライドの中身-->
 							<div class="carousel-inner">
 								<div class="carousel-item active">
-									<img class="d-block w-100" src="./img/slide.png" alt="1枚目">
+									<img class="d-block w-100" src="https://flupara-20190818.s3-ap-northeast-1.amazonaws.com/slide.jpg" alt="1枚目">
 								</div>
 								<div class="carousel-item">
-									<img class="d-block w-100" src="./img/slide.png" alt="2枚目">
+									<img class="d-block w-100" src="https://flupara-20190818.s3-ap-northeast-1.amazonaws.com/slide.jpg" alt="2枚目">
 								</div>
 								<div class="carousel-item">
-									<img class="d-block w-100" src="./img/slide.png" alt="3枚目">
+									<img class="d-block w-100" src="https://flupara-20190818.s3-ap-northeast-1.amazonaws.com/slide.jpg" alt="3枚目">
 								</div>
 							</div>
 							<!-- 左 右の矢印の設定 -->
@@ -116,23 +122,8 @@
 				<!-- ここまでスライダー -->
 			</div>
 		</div>
-		<nav class="container-fluid d-none d-lg-block navbar navbar-light sticky-top bg-nav">
-			<div class="container">
-				<ul class="row w-100 py-2 list-inline list-unstyled">
-					<li class="list-inline-item col-lg text-center"><a class="d-block text-success" href="{{ route('index') }}"><img src="./img/home-green-8.png" alt="ホーム">ホーム</a></li>
-					<li class="list-inline-item col-lg text-center"><a class="d-block text-success" href="{{ route('product.list') }}"><img src="./img/list-green-8.png" alt="商品一覧">商品一覧</a></li>
-					<li class="list-inline-item col-lg-3 text-center"><a class="d-block text-success" href="{{ route('about') }}"><img src="./img/bubble-green-8.png" alt="当サイトについて">当サイトについて</a></li>
-					<li class="list-inline-item col-lg-3 text-center"><a class="d-block text-success" href="{{ route('cart') }}"><img src="./img/cart-green-8.png" alt="カートを見る">カートを見る</a></li>
-					@if( Auth::check() )
-            <li class="list-inline-item col-lg text-center"><a class="d-block text-success" href="{{ route('users.logout') }}"><img src="./img/login-green-8.png" alt="ログアウト">ログアウト</a></li>
-            @else
-            <li class="list-inline-item col-lg text-center"><a class="d-block text-success" href="{{ route('users.signin') }}"><img src="./img/login-green-8.png" alt="ログイン">ログイン</a></li>
-            @endif
-					</ul>
-			</div>
-		</nav>
 	</header>
-    <!--ヘッダー終了-->
+	
     <main class="main-bg">
         @yield('content')
     </main>
