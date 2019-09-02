@@ -84,47 +84,27 @@
 					<p>~ あなたの元気は、ここにある ~</p>
 				</div>
 			</div>
-			<div class="jumbotron-fluid pb-3">
-				<!-- ここからスライダー -->
-				<div class="container">
-					<div class="row">
-						<div id="carousel-sample" class="col carousel slide" data-interval=5000 data-ride="carousel">
-							<!-- 画像下部の■ ■ ■部分-->
-							<ol class="carousel-indicators">
-								<li data-target="#carousel-sample" data-slide-to="0" class="active"></li>
-								<li data-target="#carousel-sample" data-slide-to="1"></li>
-								<li data-target="#carousel-sample" data-slide-to="2"></li>
-							</ol>
-							<!--画像スライドの中身-->
-							<div class="carousel-inner">
-								<div class="carousel-item active">
-									<img class="d-block w-100" src="https://flupara-20190818.s3-ap-northeast-1.amazonaws.com/slide.jpg" alt="1枚目">
-								</div>
-								<div class="carousel-item">
-									<img class="d-block w-100" src="https://flupara-20190818.s3-ap-northeast-1.amazonaws.com/slide.jpg" alt="2枚目">
-								</div>
-								<div class="carousel-item">
-									<img class="d-block w-100" src="https://flupara-20190818.s3-ap-northeast-1.amazonaws.com/slide.jpg" alt="3枚目">
-								</div>
-							</div>
-							<!-- 左 右の矢印の設定 -->
-							<a class="carousel-control-prev" href="#carousel-sample" role="button" data-slide="prev">
-								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-								<span class="sr-only">戻る</span>
-							</a>
-							<a class="carousel-control-next" href="#carousel-sample" role="button" data-slide="next">
-								<span class="carousel-control-next-icon" aria-hidden="true"></span>
-								<span class="sr-only">次へ</span>
-							</a>
-						</div>
-					</div>
-				</div>
-				<!-- ここまでスライダー -->
 			</div>
 		</div>
 	</header>
 	
     <main class="main-bg">
+    	<nav class="container-fluid d-none d-lg-block navbar navbar-light sticky-top bg-nav">
+			<div class="container">
+				<ul class="row w-100 py-2 list-inline list-unstyled">
+					<li class="list-inline-item col-lg text-center"><a class="d-block text-success" href="{{ route('index') }}"><img src="https://flupara-20190818.s3-ap-northeast-1.amazonaws.com/home-green-8.png" alt="ホーム">ホーム</a></li>
+					<li class="list-inline-item col-lg text-center"><a class="d-block text-success" href="{{ route('product.list') }}"><img src="https://flupara-20190818.s3-ap-northeast-1.amazonaws.com/list-green-8.png" alt="商品一覧">商品一覧</a></li>
+					<li class="list-inline-item col-lg-3 text-center"><a class="d-block text-success" href="{{ route('about') }}"><img src="https://flupara-20190818.s3-ap-northeast-1.amazonaws.com/bubble-green-8.png" alt="当サイトについて">当サイトについて</a></li>
+					<li class="list-inline-item col-lg-3 text-center"><a class="d-block text-success" href="{{ route('cart') }}"><img src="https://flupara-20190818.s3-ap-northeast-1.amazonaws.com/cart-green-8.png" alt="カートを見る">カートを見る</a></li>
+					@if( Auth::check() )
+            		<li class="list-inline-item col-lg text-center"><a class="d-block text-success" href="{{ route('users.logout') }}"><img src="https://flupara-20190818.s3-ap-northeast-1.amazonaws.com/login-green-8.png" alt="ログアウト">ログアウト</a></li>
+            		@else
+            		<li class="list-inline-item col-lg text-center"><a class="d-block text-success" href="{{ route('users.signin') }}"><img src="https://flupara-20190818.s3-ap-northeast-1.amazonaws.com/login-green-8.png" alt="ログイン">ログイン</a></li>
+            		@endif
+				</ul>
+			</div>
+		</nav>
+		<div class="container blank-lg-150px pt-3"></div>
         @yield('content')
     </main>
 
