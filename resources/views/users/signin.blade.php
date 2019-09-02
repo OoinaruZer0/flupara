@@ -134,7 +134,7 @@
 					<form action="{{ route('users.signin') }}" method="post">
 						<div class="form-group my-4">
 							<label>メールアドレス</label>
-							<input type="email" class="form-control" id="email" name="email" placeholder="メールアドレス" class="form-control">
+							<input type="email" class="form-control" id="email" name="email" placeholder="メールアドレス">
 						</div>
 						<div class="form-group my-4">
 							<label>パスワードを入力</label>
@@ -142,7 +142,6 @@
 						</div>
 						<button class="btn btn-lg btn-success my-4" type="submit">ログイン</button>
 						{{ csrf_field() }}
-						<input type="hidden" name="_token" value="G7iLDHoYAK0KcQ0gBsyj62ynA8cP07XMp72yGPF1">
 					</form>
 				</div>
 			</div>

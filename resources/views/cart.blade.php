@@ -54,7 +54,7 @@
             @endforeach
         @endif
         </table>
-        
+        @if( Auth::check() && $cart )
         <div class="container mb-5">
 			<div class="row">
 				<div class="col-lg-6 offset-lg-6 py-3 bg-translucent">
@@ -88,6 +88,9 @@
 				</div>
 			</div>
 		</div>
+		@else
+        <div class="offset-sm-2"></div>
+        @endif
 		<div class="container pt-5 blank">
 			<div class="row">
 				<p class="col-5 col-lg-4"><a href="{{ route('product.list') }}" class="btn btn-lg btn-success w-100">＜　商品一覧に戻る</a></p>
