@@ -21,7 +21,7 @@
 			<nav aria-label="breadcrumb" role="navigation">
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item active" aria-current="page"><a class="text-success" href="{{ route('index') }}">ホーム</a></li>
-					<li class="breadcrumb-item active" aria-current="page"><a class="text-success" href="{{ route('about') }}">当サイトについて</a></li>
+					<li class="breadcrumb-item active" aria-current="page"><a class="text-success" href="{{ route('law') }}">特定商取引法に基づく表記</a></li>
 				</ol>
 			</nav>
 		</div>
